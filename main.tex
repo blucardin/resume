@@ -1,0 +1,98 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+\usepackage[top=1cm,bottom=1cm,left=1cm,right=1cm,marginparwidth=1.75cm]{geometry} % set the margins
+
+\usepackage{amsmath} % provides many mathematical environments & tools
+\usepackage{amssymb} % provides many mathematical symbols
+
+\usepackage{titling} % provides \thetitle, \theauthor, \thedate
+\usepackage[export]{adjustbox} % provides \includegraphics[valign=c]{...}
+\usepackage{wrapfig} % provides wrapfigure environment for figures with text wrapping
+\usepackage{xcolor} % before tikz or tkz-euclide if necessary
+\usepackage{soul} % provides \hl{} for highlighting, \st{} for strikethrough, \ul{} for underline
+
+\usepackage[usestackEOL]{stackengine}[2013-10-15]
+\stackMath
+\usepackage{graphicx}
+\setlength{\footskip}{15pt}
+\setlength{\arrayrulewidth}{0.5mm}
+\setlength{\tabcolsep}{18pt}
+\renewcommand{\arraystretch}{1.5} 
+
+\usepackage{siunitx} % provides units
+\usepackage{cancel} % provides \cancel{} and \bcancel{} for crossing out in math mode
+\usepackage{lmodern} % Latin Modern font, vectorized and with more glyphs
+
+\usepackage[makeindex]{imakeidx} % provides indexing
+\makeindex[columns=2, title=Index, intoc] % set up the index
+\newcommand{\boldindex}[1]{\textbf{#1}\index{#1}} % a new command that bolds text and adds it to the index
+
+\usepackage{draculatheme} % provides a dark mode for the document
+% remember to change the \hypersetup colors if using this package
+
+% \usepackage{darkmode} 
+% \enabledarkmode
+
+\newcommand{\code}{Insert Course Code Here}
+\newcommand{\name}{Insert Course Name Here}
+\title{\code\ Course Notes}
+\author{Noah Virjee}
+\date{June 2022}
+
+\usepackage{hyperref}
+% \hypersetup{ % set up hyperref to have a nice looking set of colors
+%     colorlinks=true,
+%     linkcolor=blue,
+%     filecolor=magenta,      
+%     urlcolor=blue,
+%     pdftitle={\name},
+%     pdfpagemode=FullScreen,
+%     }
+
+% if dracula theme is enabled, set the hyperref colors to match
+\hypersetup{
+    colorlinks=true,
+    linkcolor=draculapurple,
+    filecolor=draculapurple,      
+    urlcolor=draculapurple,
+    pdftitle={\name},
+    pdfpagemode=FullScreen,
+    }
+
+\urlstyle{same} % set up the url style to be the same as the rest of the document
+
+\begin{document}
+
+\noindent\parbox{\linewidth}{ % title and author block
+\parbox{.7\linewidth}{\fontsize{24}{28}\selectfont\thetitle}\hfill%
+\parbox{.3\linewidth}{\fontsize{12}{14}\selectfont\raggedleft\today\\\theauthor%
+}}
+
+\begin{abstract}
+This document is a review of the \name\ course. I had some time on my hands and I really needed to study for exams so here goes nothing. If you find any mistakes, please let me know so I can fix them. I hope this helps you!
+\end{abstract}
+
+\tableofcontents
+\pagebreak
+
+\section{Section 1}
+\subsection{Subsection 1}
+\boldindex{Definition} will be inserted into the index. 
+
+
+\pagebreak
+\appendix
+\section*{Equations List}
+\addcontentsline{toc}{section}{Equations List}%
+
+
+\pagebreak
+\printindex
+
+\pagebreak
+\section*{Credits}
+\addcontentsline{toc}{section}{Credits}%
+
+
+\end{document}

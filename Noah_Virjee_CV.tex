@@ -1,0 +1,339 @@
+\documentclass[10pt, letterpaper]{article}
+ 
+% Packages:
+\usepackage[
+    ignoreheadfoot,
+    top=2cm,
+    bottom=2cm,
+    left=2cm,
+    right=2cm,
+    footskip=1.0cm,
+]{geometry}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{primaryColor}{RGB}{0, 0, 0}
+\usepackage{enumitem}
+\usepackage{fontawesome5}
+\usepackage{amsmath}
+\usepackage[
+    pdftitle={Noah Virjee's Resume},
+    pdfauthor={Noah Virjee},
+    pdfcreator={LaTeX},
+    colorlinks=true,
+    urlcolor=blue
+]{hyperref}
+\usepackage[pscoord]{eso-pic}
+\usepackage{calc}
+\usepackage{bookmark}
+\usepackage{lastpage}
+\usepackage{changepage}
+\usepackage{paracol}
+\usepackage{ifthen}
+\usepackage{needspace}
+\usepackage{iftex}
+
+% Ensure that generated PDF is machine readable/ATS parsable:
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+\usepackage{charter}
+
+% Settings:
+\raggedright
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt}
+\pagestyle{empty}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\topskip}{0pt}
+\setlength{\columnsep}{0.15cm}
+\pagenumbering{gobble}
+
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+
+\titlespacing{\section}{
+    -1pt
+}{
+    0.3cm
+}{
+    0.2cm
+}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$}
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10cm,
+        parsep=0.10cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0cm + 10pt
+    ]
+}{
+    \end{itemize}
+}
+
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        topsep=0.10cm,
+        parsep=0.10cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=10pt
+    ]
+}{
+    \end{itemize}
+}
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{
+        0cm + 0.00001cm
+    }{
+        0cm + 0.00001cm
+    }
+}{
+    \end{adjustwidth}
+}
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 5.5 cm} % NOAH's NOTE: dephault 4.5 cm, changed
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+}
+
+\newenvironment{threecolentry}[3][]{
+    \onecolentry
+    \def\thirdColumn{#3}
+    \setcolumnwidth{, \fill, 4.5cm}
+    \begin{paracol}{3}
+    {\raggedright #2} \switchcolumn
+}{
+    \switchcolumn \raggedleft \thirdColumn
+    \end{paracol}
+    \endonecolentry
+}
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
+}{
+    \par\kern\topsep
+}
+
+\newcommand{\placelastupdatedtext}{%
+  \AddToShipoutPictureFG*{%
+    \put(
+        \LenToUnit{\paperwidth-2cm-0cm+0.05cm},
+        \LenToUnit{\paperheight-1.0cm}
+    ){\vtop{{\null}\makebox[0pt][c]{
+        \small\color{gray}\textit{Last updated in February 2025}\hspace{\widthof{Last updated in February 2025}}
+    }}}%
+  }%
+}
+
+\begin{document}
+
+    \newcommand{\AND}{\unskip
+        \cleaders\copy\ANDbox\hskip\wd\ANDbox
+        \ignorespaces
+    }
+    \newsavebox\ANDbox
+    \sbox\ANDbox{$|$}
+    
+    \begin{header}
+        \fontsize{25pt}{25pt}\selectfont Noah Virjee
+
+        \vspace{5pt}
+
+        \normalsize
+        \mbox{179 Cassandra Blvd., Toronto, ON}%
+        \kern 5.0pt%
+        \AND%
+        \kern 5.0pt%
+        \mbox{\href{mailto:blucardin@gmail.com}{blucardin@gmail.com}}%
+        \kern 5.0pt%
+        \AND%
+        \kern 5.0pt%
+        \mbox{\href{tel:6475406624}{(647) 540-6624}}%
+        \kern 5.0pt%
+        \AND%
+        \kern 5.0pt%
+        \mbox{\href{https://blucardin.github.io/}{Portfolio}}%
+        \kern 5.0pt%
+        \AND%
+        \kern 5.0pt%
+        \mbox{\href{https://www.linkedin.com/in/noah-virjee-939029193/}{LinkedIn}}%
+        \kern 5.0pt%
+        \AND%
+        \kern 5.0pt%
+        \mbox{\href{https://github.com/blucardin/}{Github}}
+    \end{header}
+
+    \vspace{5pt - 0.3cm}
+
+    \section{Objective}
+    \begin{onecolentry}
+        An ambitious developer seeking opportunities to leverage and improve technical and problem-solving skills within a collaborative environment. Eager to contribute to meaningful projects and gain professional experience.
+    \end{onecolentry}
+
+    \section{Technical Skills}
+    \begin{onecolentry}
+        \textbf{Programming Languages:} Python, Java, JavaScript, C
+    \end{onecolentry}
+    \vspace{0.2cm}
+    \begin{onecolentry}
+        \textbf{Web Technologies:} Flask, WebSockets, WebRTC, HTML, CSS
+    \end{onecolentry}
+    \vspace{0.2cm}
+    \begin{onecolentry}
+        \textbf{Tools and Platforms:} GitHub, VSCode, PyCharm, Jupyter Notebook, Google Cloud Platform
+    \end{onecolentry}
+    \vspace{0.2cm}
+    \begin{onecolentry}
+        \textbf{Databases:} SQL, Redis
+    \end{onecolentry}
+    \vspace{0.2cm}
+    \begin{onecolentry}
+        \textbf{Soft Skills:} Public Speaking, Team Leadership, Event Coordination
+    \end{onecolentry}
+    
+
+    \section{Experience}
+    \begin{twocolentry}{July 2022 – February 2023}
+        \textbf{Junior Full Stack Developer}, Employment Readiness Scale Inc.
+    \end{twocolentry}
+    \vspace{0.10cm}
+    \begin{onecolentry}
+        \begin{highlights}
+            \item Developed a web application providing agencies with dynamic, user-friendly dashboards that display statistical insights from student assessments.
+            \item Wrote API calls to access the data and aggregated and displayed the statistics with Python, Flask, HTML, and JavaScript. 
+            \item Sole developer for the project, reporting directly to the lead developer.
+        \end{highlights}
+    \end{onecolentry}
+
+    \vspace{0.2cm}
+
+    \begin{twocolentry}{December 2021 – December 2022}
+        \textbf{Event Organizer}, Recess Hacks 
+    \end{twocolentry}
+    
+    \vspace{0.10cm}
+    \begin{onecolentry}
+        \begin{highlights}
+            \item Organized the second iteration of Recess Hacks, a hackathon for Canadian high school students with over 100 attendees.
+            \item Coordinated event logistics, managed participant communications, and facilitated workshops.
+        \end{highlights}
+    \end{onecolentry}
+
+    \section{Education}
+    
+    \begin{twocolentry}{September 2025 – April 2029}
+        \textbf{University of British Columbia}
+    \end{twocolentry}
+    \vspace{0.10cm}
+    \begin{onecolentry}
+        \begin{highlights}
+            \item Accepted into first-year Arts and Science, planning to specialize in Computer Science.
+            \item Currently on a gap year.
+        \end{highlights}
+    \end{onecolentry}
+
+    \vspace{0.2cm}
+
+    \begin{twocolentry}{September 2020 – June 2024}
+    \textbf{Ursula Franklin Academy}, Toronto, Ontario
+    \end{twocolentry}
+    \vspace{0.10cm}
+    \begin{onecolentry}
+        \begin{highlights}
+            \item Graduated with honors; School Valedictorian.
+            \item \textbf{Extracurriculars \& Leadership:}
+                \begin{itemize}[leftmargin=15pt]
+                    \item \textit{Model UN:} Head delegate/team lead for 2 years.
+                    \item \textit{DECA:} Competed in Marketing Communications, placed 3rd regionally, top 7 provincially, and qualified for the International Conference.
+                    \item \textit{PALS:} Assisted grade 9 transitions; organized open house and retreat; supported various school events.
+                    \item \textit{Peer Tutoring \& Clubs:} Tutored in math, CS, and sciences; participated in Reach for the Top, Cross Country, School Play, and Tech Club.
+                \end{itemize}
+        \end{highlights}
+    \end{onecolentry}
+
+    \section{Projects}
+    \begin{twocolentry}{}
+        \textbf{\href{https://blucardin.github.io/projects/christmas-lights-v2/}{Christmas Lights Version 2}}
+    \end{twocolentry}
+    \vspace{0.10cm}
+    \begin{onecolentry}
+        \begin{highlights}
+            \item Developed a system to play videos on addressable Christmas tree lights by determining light positions and mapping video frames accordingly.
+            \item Utilized a Raspberry Pi for hardware control and Python for software development.
+        \end{highlights}
+    \end{onecolentry}
+
+    \vspace{0.2cm}
+
+    \begin{twocolentry}{}
+        \textbf{\href{https://blucardin.github.io/projects/prom_seating/}{Prom Seating Arrangement}}
+    \end{twocolentry}
+    \vspace{0.10cm}
+    \begin{onecolentry}
+        \begin{highlights}
+            \item Created an algorithm to optimize prom seating arrangements based on social network analysis and community detection.
+            \item Applied graph theory and modularity concepts to partition attendees into optimal groups.
+        \end{highlights}
+    \end{onecolentry}
+
+    \section{Certifications and Achievements}
+    \begin{onecolentry}
+        \begin{highlights}
+            \item \textbf{CS50x Certificate:} Completed Harvard's online course on Computer Science.
+            \item \textbf{CS50p Certificate:} Completed Harvard's online course on Python Programming.
+            \item \textbf{CS50AI Certificate:} Completed Harvard's online course on Artificial Intelligence.
+        \end{highlights}
+    \end{onecolentry}
+
+    \section{Hackathons}
+    \begin{onecolentry}
+        \begin{twocolentry}{January 2025}
+            \textbf{McHacks} - \href{https://devpost.com/software/patiently-waiting}{Patiently}
+            \begin{highlights}
+            \item Developed a website to track and predict hospital wait times with neural networks. 
+            \item Won best use of Terraform.
+            \end{highlights}
+            
+        \end{twocolentry}
+
+        \begin{twocolentry}{February 2025}
+            \textbf{MakeHarvard} - Helping Hand 
+            \begin{highlights}
+            \item Made a glove that used AI object detection and language processing to guide the visually impaired. 
+            \item Won fan favorite. 
+            \end{highlights}
+        \end{twocolentry}
+
+        \begin{twocolentry}{February 2025}
+            \textbf{MakeUofT} - \href{https://devpost.com/software/the-quicker-picker-upper}{The Quicker Picker Upper}
+            \begin{highlights}
+            \item Created a 3d printed dual-axis robotic arm for garbage collection. 
+            \item Won 2nd place. 
+            \end{highlights}
+            
+         \end{twocolentry}
+
+    \end{onecolentry}
+
+    \vspace{0.2cm}
+
+    \begin{onecolentry}
+        \textit{References available upon request.}
+    \end{onecolentry}
+
+\end{document}

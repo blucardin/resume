@@ -1,6 +1,6 @@
 name: Build LaTeX document
 on: [push]
-jobs:
+jobs:  
   build:
     runs-on: ubuntu-latest
     steps:
@@ -30,6 +30,9 @@ jobs:
 
   # Deployment job
   deploy:
+    permissions:
+      id-token: write
+      pages: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

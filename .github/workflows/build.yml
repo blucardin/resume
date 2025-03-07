@@ -26,7 +26,7 @@ jobs:
         run: |
           mkdir build_outputs_folder
           cp Noah_Virjee_CV.pdf build_outputs_folder/Noah_Virjee_CV.pdf
-          cp Noah_Virjee_CV_C.pdf build_outputs_folder/_C.pdf
+          cp Noah_Virjee_CV_C.pdf build_outputs_folder/Noah_Virjee_CV_C.pdf
         
 
       - name: Upload static files as artifact

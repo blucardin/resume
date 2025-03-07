@@ -8,4 +8,5 @@
 *.idx
 *.ilg
 *.ind
-.vscode
+*.dvi
+*.out.ps

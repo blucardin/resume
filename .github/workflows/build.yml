@@ -6,20 +6,27 @@ jobs:
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v4
+
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v3
         with:
-          root_file: Noah_Virjee_CV.tex
+          root_file: |
+            Noah_Virjee_CV.tex
+            Noah_Virjee_CV_C.tex
+
       - name: Upload PDF file
         uses: actions/upload-artifact@v4
         with:
           name: PDF
-          path: Noah_Virjee_CV.pdf
+          path: |
+            Noah_Virjee_CV.pdf
+            Noah_Virjee_CV_C.pdf
 
       - name: move to build folder
         run: |
           mkdir build_outputs_folder
           cp Noah_Virjee_CV.pdf build_outputs_folder/Noah_Virjee_CV.pdf
+          cp Noah_Virjee_CV_C.pdf build_outputs_folder/_C.pdf
         
 
       - name: Upload static files as artifact

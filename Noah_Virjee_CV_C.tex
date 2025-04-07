@@ -33,6 +33,7 @@
 \usepackage{ifthen}
 \usepackage{needspace}
 \usepackage{iftex}
+\usepackage{qrcode}
 
 % Ensure that generated PDF is machine readable/ATS parsable:
 \ifPDFTeX
@@ -162,9 +163,10 @@
     \sbox\ANDbox{$|$}
     
     \begin{header}
-        \fontsize{25pt}{25pt}\selectfont Noah Virjee
-
-        \vspace{5pt}
+        \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} l c r}
+            & \hspace{2cm} \fontsize{25pt}{25pt}\selectfont Noah Virjee & \qrcode[height=1.5cm]{https://blucardin.github.io/} \\
+          \end{tabular*}
+        \vspace{1pt}
 
         \normalsize
         \mbox{179 Cassandra Blvd., Toronto, ON}%
@@ -194,7 +196,7 @@
 
     \section{Objective}
     \begin{onecolentry}
-        I am a personable and motivated professional with a strong record in communication, problem-solving, and event coordination. I seek a customer service role where I can leverage my skills to effectively resolve issues, and provide a positive, supportive experience.
+        I am a personable and motivated professional with a strong record in communication and problem-solving. I seek a challenging position where I can leverage my skills to effectively resolve issues, and provide a positive, supportive experience.
     \end{onecolentry}
 
     \section{Key Skills}
@@ -250,7 +252,7 @@
             \item Developed a web application providing agencies with dynamic, user-friendly dashboards that display statistical insights from student assessments.
             \item Wrote API calls to access the data and aggregated and displayed the statistics with Python, Flask, HTML, and JavaScript. 
             \item Sole developer for the project, reporting directly to the lead developer.
-            \item Consuleted with end users to gather requirements and feedback, ensuring the application met their needs.
+            \item Consulted with end users to gather requirements and feedback, ensuring the application met their needs.
         \end{highlights}
     \end{onecolentry}
 
